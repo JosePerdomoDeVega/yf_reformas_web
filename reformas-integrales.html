@@ -35,6 +35,7 @@
     <li><a href="electricidad-y-fontaneria.html">Electricidad y fontanería</a></li>
     <li><a href="pintura-y-revestimientos.html">Pintura y revestimientos</a></li>
     <li><a href="carpinteria-a-medida.html">Carpintería a medida</a></li>
+    <li><a href="impermeabilizacion-de-azoteas.html">Impermeabilización de azoteas</a></li>
   </ul>
   <ul class="side-menu-list">
     <li><a href="index.html#presupuesto">Cuéntanos tu reforma</a></li>
@@ -42,7 +43,7 @@
     <li><a href="index.html#barrio">El barrio</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <a class="button side-menu-cta" href="https://wa.me/34000000000" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+  <a class="button side-menu-cta" data-wa href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
 </nav>
 
 <main id="contenido">
@@ -55,7 +56,7 @@
     <p class="svc-hero-lead">Tu vivienda entera, de la demolición al último detalle, con un único responsable de obra.</p>
     <div class="svc-hero-ctas">
       <a class="button" data-wa-msg="Hola, quiero información sobre una reforma integral de vivienda.">Escríbenos por WhatsApp</a>
-      <a class="button button--dark" href="mailto:info@yfreformas.com?subject=Reforma%20integral&body=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20reforma%20integral%20de%20vivienda.">Pedir info por email</a>
+      <a class="button button--dark" data-mail-subject="Reforma integral" data-mail-body="Hola, quiero información sobre una reforma integral de vivienda." href="#">Pedir info por email</a>
     </div>
   </div>
 </section>
@@ -122,7 +123,7 @@
       <tr><td>Lunes–viernes</td><td>8:00–18:00</td></tr>
       <tr><td>Sábado</td><td>9:00–13:00</td></tr>
     </table>
-    <a class="tel" href="tel:+34000000000">+34 000 00 00 00</a>
+    <a class="tel" data-tel href="#">+34 000 00 00 00</a>
     <form class="contact-form" id="contactForm">
       <input class="field" type="text" name="nombre" placeholder="Tu nombre" required>
       <input class="field" type="tel" name="telefono" placeholder="Tu teléfono" required>
@@ -142,6 +143,7 @@
       <a class="link" href="electricidad-y-fontaneria.html">Electricidad y fontanería</a>
       <a class="link" href="pintura-y-revestimientos.html">Pintura y revestimientos</a>
       <a class="link" href="carpinteria-a-medida.html">Carpintería a medida</a>
+      <a class="link" href="impermeabilizacion-de-azoteas.html">Impermeabilización de azoteas</a>
     </div>
   </div>
 </section>
@@ -168,12 +170,13 @@
         <a class="link-plain" href="electricidad-y-fontaneria.html">Electricidad y fontanería</a>
         <a class="link-plain" href="pintura-y-revestimientos.html">Pintura y revestimientos</a>
         <a class="link-plain" href="carpinteria-a-medida.html">Carpintería a medida</a>
+        <a class="link-plain" href="impermeabilizacion-de-azoteas.html">Impermeabilización de azoteas</a>
       </div>
       <div class="footer-col">
         <h3>Contacto</h3>
-        <a class="link-plain" href="tel:+34000000000">+34 000 00 00 00</a>
-        <a class="link-plain" href="mailto:info@yfreformas.com">info@yfreformas.com</a>
-        <a class="link-plain" href="https://wa.me/34000000000">WhatsApp</a>
+        <a class="link-plain" data-tel href="#">+34 000 00 00 00</a>
+        <a class="link-plain" data-mail-plain href="#">info@yfreformas.com</a>
+        <a class="link-plain" data-wa href="#">WhatsApp</a>
       </div>
       <div class="footer-col">
         <h3>Zona de trabajo</h3>
@@ -193,7 +196,7 @@
   </div>
 </footer>
 
-<a class="whatsapp-fab" href="https://wa.me/34000000000" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+<a class="whatsapp-fab" data-wa href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2m0 1.8c2.14 0 4.15.84 5.67 2.35a7.96 7.96 0 0 1 2.34 5.75c0 4.47-3.64 8.1-8.02 8.1a8 8 0 0 1-4.08-1.11l-.29-.17-3.02.8.8-2.95-.19-.3a7.95 7.95 0 0 1-1.23-4.27c0-4.47 3.65-8.1 8.02-8.1m-4.3 4.2c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.9 2.41 1.02 2.58c.12.17 1.76 2.78 4.37 3.78 2.16.84 2.6.67 3.07.63.46-.04 1.5-.61 1.71-1.2.21-.6.21-1.1.15-1.21-.06-.1-.23-.17-.48-.29-.25-.13-1.5-.74-1.73-.82-.23-.09-.4-.13-.57.13-.17.25-.65.82-.8 1-.15.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.4-.78-1.91-.2-.5-.42-.43-.57-.43" /></svg>
 </a>
 

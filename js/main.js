@@ -1,10 +1,26 @@
 // YF Reformas: motion, chapter ink, the "cuéntanos tu reforma" tool, contact form
 
-// 0. Shared contact helpers: every WhatsApp / email link on every page is built from these.
-const YF_PHONE = '34000000000';
-const YF_EMAIL = 'info@yfreformas.com';
-function waHref(text) { return `https://wa.me/${YF_PHONE}?text=${encodeURIComponent(text)}`; }
+// 0. Shared contact helpers: every phone / WhatsApp / email on every page is built from these
+//    four lines. Change a value here and every page picks it up, nothing else to edit.
+const YF_PHONE = '34622835595';          // digits only, with country code, no spaces or +
+const YF_PHONE_DISPLAY = '+34 622 83 55 95'; // shown as text wherever the number is visible
+const YF_EMAIL = 'yperdomo@gmx.es';
+// Access key from web3forms.com, tied to the inbox that should receive contact-form submissions.
+const YF_WEB3FORMS_KEY = 'TU_ACCESS_KEY_DE_WEB3FORMS';
+function waHref(text) { return text ? `https://wa.me/${YF_PHONE}?text=${encodeURIComponent(text)}` : `https://wa.me/${YF_PHONE}`; }
 function mailHref(subject, body) { return `mailto:${YF_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; }
+
+// 0b. Generic: fill in every plain contact link from the four lines above.
+//   data-tel            → tel: link, text replaced with the formatted number
+//   data-wa             → plain wa.me link (no pre-filled message)
+//   data-mail-plain     → mailto: link, text replaced with the address
+//   data-mail-subject + data-mail-body → mailto: link with a pre-filled subject/body
+(() => {
+  document.querySelectorAll('[data-tel]').forEach((a) => { a.href = `tel:+${YF_PHONE}`; a.textContent = YF_PHONE_DISPLAY; });
+  document.querySelectorAll('[data-wa]').forEach((a) => { a.href = waHref(); });
+  document.querySelectorAll('[data-mail-plain]').forEach((a) => { a.href = `mailto:${YF_EMAIL}`; a.textContent = YF_EMAIL; });
+  document.querySelectorAll('[data-mail-subject]').forEach((a) => { a.href = mailHref(a.dataset.mailSubject, a.dataset.mailBody || ''); });
+})();
 
 // 1. Reveal once when an element enters the viewport.
 (() => {
@@ -109,16 +125,55 @@ function mailHref(subject, body) { return `mailto:${YF_EMAIL}?subject=${encodeUR
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') closeMenu(); });
 })();
 
-// 6. Contact form: no backend yet, so it opens a pre-filled email. Replace with a real
-//    form handler (Formspree, Netlify Forms, etc.) before launch.
+// 6. Contact form: sends through Web3Forms (static site, no backend of our own) so the
+//    message reaches our inbox even if the visitor has no email client configured.
+//    Falls back to a pre-filled mailto if the request fails or the key isn't set.
 (() => {
   const form = document.getElementById('contactForm');
   if (!form) return;
-  form.addEventListener('submit', (e) => {
+
+  let status = form.querySelector('.contact-status');
+  if (!status) {
+    status = document.createElement('p');
+    status.className = 'contact-status';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    form.appendChild(status);
+  }
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const nombre = form.nombre.value.trim();
     const telefono = form.telefono.value.trim();
     const mensaje = form.mensaje.value.trim();
-    window.location.href = mailHref(`Reforma — contacto de ${nombre}`, `Nombre: ${nombre}\nTeléfono: ${telefono}\n\n${mensaje}`);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const fallback = () => { window.location.href = mailHref(`Reforma — contacto de ${nombre}`, `Nombre: ${nombre}\nTeléfono: ${telefono}\n\n${mensaje}`); };
+
+    if (!YF_WEB3FORMS_KEY || YF_WEB3FORMS_KEY === 'TU_ACCESS_KEY_DE_WEB3FORMS') { fallback(); return; }
+
+    submitBtn.disabled = true;
+    status.textContent = 'Enviando…';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: YF_WEB3FORMS_KEY,
+          subject: `Reforma — contacto de ${nombre}`,
+          nombre, telefono, mensaje,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        status.textContent = '¡Gracias! Hemos recibido tu mensaje, te contactaremos pronto.';
+        form.reset();
+      } else {
+        fallback();
+      }
+    } catch {
+      fallback();
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 })();

@@ -322,6 +322,7 @@ p + p { margin-top: 0.9em; }
 .service-row:nth-child(4) .service-photo { aspect-ratio: 1 / 1; width: 170px; }
 .service-row:nth-child(5) .service-photo { aspect-ratio: 4 / 5; width: 200px; }
 .service-row:nth-child(6) .service-photo { aspect-ratio: 3 / 2; width: 260px; }
+.service-row:nth-child(7) .service-photo { aspect-ratio: 1 / 1; width: 190px; }
 
 @media (max-width: 62em) {
   .services-head { min-height: 40svh; font-size: clamp(2.6rem, 11vw, 3.4rem); max-width: 100%; }
@@ -488,6 +489,8 @@ p + p { margin-top: 0.9em; }
 .contact-form textarea { min-height: 4.5rem; resize: vertical; }
 .contact-card .button { width: 100%; margin-top: 0.2rem; }
 .contact-note { font-size: 0.72rem; color: #6b5a44; margin-top: 0.6rem; }
+.contact-status:empty { display: none; }
+.contact-status { font-size: 0.85rem; font-weight: 600; margin-top: 0.3rem; }
 
 @media (max-width: 62em) {
   .contact { height: auto; min-height: auto; }

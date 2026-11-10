@@ -390,5 +390,51 @@
    "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
   ],
   "saved": "2026-10-27T19:05:55.232Z"
+ },
+ {
+  "file": "assets/u-epdm-roof-membrane.jpg",
+  "media": "image",
+  "ref": "commons:4307087",
+  "title": "FinishedEPDMcoveredRoof",
+  "creator": "KVDP",
+  "creatorUrl": null,
+  "date": "2008-07-01",
+  "license": "public domain",
+  "licenseCode": "pd",
+  "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "creditRequired": false,
+  "page": "https://commons.wikimedia.org/wiki/File:FinishedEPDMcoveredRoof.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/FinishedEPDMcoveredRoof.jpg/1920px-FinishedEPDMcoveredRoof.jpg",
+  "width": 1920,
+  "height": 1598,
+  "bytes": 848486,
+  "credit": "\"FinishedEPDMcoveredRoof\" by KVDP, public domain, via Wikimedia Commons",
+  "notes": [],
+  "saved": "2026-11-10T12:14:23.356Z"
+ },
+ {
+  "file": "assets/u-roof-drain-detail.jpg",
+  "media": "image",
+  "ref": "commons:158335115",
+  "title": "Dornbirn-Flat roof rainwater outlet (flat roof drain)-01ASD",
+  "creator": "Asurnipal",
+  "creatorUrl": null,
+  "date": "2025-01-21",
+  "license": "CC BY-SA 4.0",
+  "licenseCode": "by-sa",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/wiki/File:Dornbirn-Flat_roof_rainwater_outlet_(flat_roof_drain)-01ASD.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Dornbirn-Flat_roof_rainwater_outlet_%28flat_roof_drain%29-01ASD.jpg/1920px-Dornbirn-Flat_roof_rainwater_outlet_%28flat_roof_drain%29-01ASD.jpg",
+  "width": 1920,
+  "height": 1440,
+  "bytes": 1127453,
+  "credit": "\"Dornbirn-Flat roof rainwater outlet (flat roof drain)-01ASD\" by Asurnipal, CC BY-SA 4.0, via Wikimedia Commons",
+  "notes": [
+   "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+  ],
+  "saved": "2026-11-10T12:14:52.676Z"
  }
 ]
