@@ -6,7 +6,7 @@ const YF_PHONE = '34622835595';          // digits only, with country code, no s
 const YF_PHONE_DISPLAY = '+34 622 83 55 95'; // shown as text wherever the number is visible
 const YF_EMAIL = 'yperdomo@gmx.es';
 // Access key from web3forms.com, tied to the inbox that should receive contact-form submissions.
-const YF_WEB3FORMS_KEY = 'TU_ACCESS_KEY_DE_WEB3FORMS';
+const YF_WEB3FORMS_KEY = '62f4ff60-5f44-431b-a658-96d1b008cf09';
 function waHref(text) { return text ? `https://wa.me/${YF_PHONE}?text=${encodeURIComponent(text)}` : `https://wa.me/${YF_PHONE}`; }
 function mailHref(subject, body) { return `mailto:${YF_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; }
 
