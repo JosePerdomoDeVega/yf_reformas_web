@@ -519,3 +519,12 @@ p + p { margin-top: 0.9em; }
 
 /* ---------- headings on every section ---------- */
 .eyebrow-free h2 { margin-bottom: 0; }
+
+/* =======================================================================
+   404
+   ======================================================================= */
+.error-page { background: var(--bg); color: var(--ink); min-height: 80svh; display: flex; align-items: center; }
+.error-page .wrap { text-align: center; }
+.error-page h1 { font-size: var(--step-display); }
+.error-page p { font-size: var(--step-lead); max-width: 46ch; margin: 1.2rem auto 0; color: var(--muted); }
+.error-page .button { margin-top: 2rem; }
