@@ -7,19 +7,30 @@ const YF_PHONE_DISPLAY = '+34 622 83 55 95'; // shown as text wherever the numbe
 const YF_EMAIL = 'yperdomo@gmx.es';
 // Access key from web3forms.com, tied to the inbox that should receive contact-form submissions.
 const YF_WEB3FORMS_KEY = '62f4ff60-5f44-431b-a658-96d1b008cf09';
+
+// Datos fiscales del titular (autónomo), solo para el aviso legal. Rellena estos tres y se
+// actualiza en toda la web, no hay que tocar aviso-legal.html.
+const YF_LEGAL_NAME = 'Fabián Ernesto Bedoya Soto';    // nombre y apellidos del autónomo
+const YF_LEGAL_NIF = '62085758H';     // NIF
+const YF_LEGAL_ADDRESS = 'Calle el Cortijo de San Gregorio, 38'; // domicilio fiscal (calle y número)
+
 function waHref(text) { return text ? `https://wa.me/${YF_PHONE}?text=${encodeURIComponent(text)}` : `https://wa.me/${YF_PHONE}`; }
 function mailHref(subject, body) { return `mailto:${YF_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; }
 
-// 0b. Generic: fill in every plain contact link from the four lines above.
+// 0b. Generic: fill in every plain contact link from the lines above.
 //   data-tel            → tel: link, text replaced with the formatted number
 //   data-wa             → plain wa.me link (no pre-filled message)
 //   data-mail-plain     → mailto: link, keeps its own label (e.g. "Email")
 //   data-mail-subject + data-mail-body → mailto: link with a pre-filled subject/body
+//   data-legal-name / data-legal-nif / data-legal-address → text filled in from YF_LEGAL_*
 (() => {
   document.querySelectorAll('[data-tel]').forEach((a) => { a.href = `tel:+${YF_PHONE}`; a.textContent = YF_PHONE_DISPLAY; });
   document.querySelectorAll('[data-wa]').forEach((a) => { a.href = waHref(); });
   document.querySelectorAll('[data-mail-plain]').forEach((a) => { a.href = `mailto:${YF_EMAIL}`; });
   document.querySelectorAll('[data-mail-subject]').forEach((a) => { a.href = mailHref(a.dataset.mailSubject, a.dataset.mailBody || ''); });
+  document.querySelectorAll('[data-legal-name]').forEach((el) => { el.textContent = YF_LEGAL_NAME; });
+  document.querySelectorAll('[data-legal-nif]').forEach((el) => { el.textContent = YF_LEGAL_NIF; });
+  document.querySelectorAll('[data-legal-address]').forEach((el) => { el.textContent = YF_LEGAL_ADDRESS; });
 })();
 
 // 1. Reveal once when an element enters the viewport.
