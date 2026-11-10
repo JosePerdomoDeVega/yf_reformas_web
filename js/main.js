@@ -13,12 +13,12 @@ function mailHref(subject, body) { return `mailto:${YF_EMAIL}?subject=${encodeUR
 // 0b. Generic: fill in every plain contact link from the four lines above.
 //   data-tel            → tel: link, text replaced with the formatted number
 //   data-wa             → plain wa.me link (no pre-filled message)
-//   data-mail-plain     → mailto: link, text replaced with the address
+//   data-mail-plain     → mailto: link, keeps its own label (e.g. "Email")
 //   data-mail-subject + data-mail-body → mailto: link with a pre-filled subject/body
 (() => {
   document.querySelectorAll('[data-tel]').forEach((a) => { a.href = `tel:+${YF_PHONE}`; a.textContent = YF_PHONE_DISPLAY; });
   document.querySelectorAll('[data-wa]').forEach((a) => { a.href = waHref(); });
-  document.querySelectorAll('[data-mail-plain]').forEach((a) => { a.href = `mailto:${YF_EMAIL}`; a.textContent = YF_EMAIL; });
+  document.querySelectorAll('[data-mail-plain]').forEach((a) => { a.href = `mailto:${YF_EMAIL}`; });
   document.querySelectorAll('[data-mail-subject]').forEach((a) => { a.href = mailHref(a.dataset.mailSubject, a.dataset.mailBody || ''); });
 })();
 
@@ -73,19 +73,25 @@ function mailHref(subject, body) { return `mailto:${YF_EMAIL}?subject=${encodeUR
   const waBtn = document.getElementById('calcWhatsapp');
   const mailBtn = document.getElementById('calcEmail');
 
+  let currentMessage = '';
   function build() {
     const chosen = [...rooms].filter((r) => r.checked).map((r) => r.value);
     const nivelVal = form.querySelector('input[name="nivel"]:checked').value;
-    const message = chosen.length
+    currentMessage = chosen.length
       ? `Hola, quiero pedir información para reformar: ${chosen.join(', ')}. Acabado: ${nivelVal}.`
       : 'Hola, quiero pedir información sobre una reforma.';
-    preview.textContent = chosen.length ? message : 'Elige al menos una estancia.';
-    waBtn.href = waHref(message);
-    mailBtn.href = mailHref('Información sobre una reforma', message);
+    preview.textContent = chosen.length ? currentMessage : 'Elige al menos una estancia.';
+    waBtn.href = waHref(currentMessage);
   }
   rooms.forEach((r) => r.addEventListener('change', build));
   nivel.forEach((r) => r.addEventListener('change', build));
   build();
+
+  // "Enviar por email" goes to the real contact form (Web3Forms), not a mailto: draft.
+  mailBtn.addEventListener('click', () => {
+    const mensaje = document.querySelector('#contactForm textarea[name="mensaje"]');
+    if (mensaje) mensaje.value = currentMessage;
+  });
 })();
 
 // 4b. Generic: any link marked data-wa-msg gets a ready WhatsApp href (used on service pages).

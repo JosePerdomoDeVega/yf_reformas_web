@@ -270,30 +270,22 @@ p + p { margin-top: 0.9em; }
 .about-head { font-size: var(--step-head); max-width: 10ch; }
 .about-lead { font-size: var(--step-lead); line-height: 1.35; max-width: 42ch; margin-top: 1.5rem; }
 .about-mosaic {
-  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px;
   margin-top: clamp(3rem, 6vw, 4.5rem);
 }
-.about-photo { grid-column: 1 / 9; position: relative; aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden; }
+.about-photo { position: relative; aspect-ratio: 21 / 9; border-radius: var(--radius); overflow: hidden; }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; }
 .about-photo-caption {
   position: absolute; right: 0; top: 0; max-width: 320px;
   background: var(--paper); color: var(--paper-ink);
   padding: 20px; font-size: var(--step-small); line-height: 1.5;
 }
-.about-tile { grid-column: 9 / 13; background: var(--accent); color: var(--accent-ink); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
-.about-tile svg { width: 100%; height: auto; max-height: 150px; }
-.about-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 10px; margin-top: 20px; }
-.about-fact dt { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.75; }
-.about-fact dd { font-size: 0.92rem; margin-top: 2px; font-weight: 600; }
 
 @media (max-width: 62em) {
   .about-head { font-size: clamp(2.4rem, 9vw, 3rem); max-width: 100%; }
   .about-lead { font-size: 1.15rem; }
-  .about-mosaic { display: block; margin-top: 2.5rem; }
+  .about-mosaic { margin-top: 2.5rem; }
   .about-photo { aspect-ratio: 4 / 3; border-radius: 8px; }
   .about-photo-caption { position: static; max-width: none; margin-top: 0; }
-  .about-tile { margin-top: 16px; aspect-ratio: 3 / 2; }
-  .about-facts { grid-template-columns: 1fr 1fr; }
 }
 
 /* =======================================================================
@@ -528,3 +520,17 @@ p + p { margin-top: 0.9em; }
 .error-page h1 { font-size: var(--step-display); }
 .error-page p { font-size: var(--step-lead); max-width: 46ch; margin: 1.2rem auto 0; color: var(--muted); }
 .error-page .button { margin-top: 2rem; }
+
+/* =======================================================================
+   LEGAL
+   ======================================================================= */
+.legal-page { background: var(--bg); color: var(--ink); padding-block: clamp(6rem, 12vw, 9rem) clamp(4rem, 8vw, 6rem); }
+.legal-page .wrap { max-width: 70ch; }
+.legal-page h1 { font-size: var(--step-head); max-width: 16ch; }
+.legal-page .legal-intro { font-size: var(--step-lead); margin-top: 1.2rem; color: var(--muted); }
+.legal-page section { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.legal-page h2 { font-size: clamp(1.3rem, 2vw, 1.7rem); }
+.legal-page p { font-size: var(--step-body); margin-top: 0.9rem; max-width: 70ch; }
+.legal-page p + p { margin-top: 0.7em; }
+.legal-page ul { margin-top: 0.9rem; padding-left: 1.2rem; list-style: disc; }
+.legal-page li { font-size: var(--step-body); margin-top: 0.4rem; }
