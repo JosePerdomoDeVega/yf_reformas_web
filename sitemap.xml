@@ -21,10 +21,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yf-reformas.com/carpinteria-a-medida.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://yf-reformas.com/impermeabilizacion-de-azoteas.html</loc>
     <priority>0.8</priority>
   </url>
@@ -32,4 +28,9 @@
     <loc>https://yf-reformas.com/aviso-legal.html</loc>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://yf-reformas.com/blog/</loc>
+    <priority>0.5</priority>
+  </url>
+  <!-- NUEVA_URL_AQUI -->
 </urlset>

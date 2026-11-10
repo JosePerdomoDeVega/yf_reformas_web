@@ -534,3 +534,32 @@ p + p { margin-top: 0.9em; }
 .legal-page p + p { margin-top: 0.7em; }
 .legal-page ul { margin-top: 0.9rem; padding-left: 1.2rem; list-style: disc; }
 .legal-page li { font-size: var(--step-body); margin-top: 0.4rem; }
+
+/* =======================================================================
+   BLOG
+   ======================================================================= */
+.blog-index { background: var(--bg); color: var(--ink); padding-block: clamp(6rem, 12vw, 9rem) clamp(4rem, 8vw, 6rem); }
+.blog-index .wrap { max-width: 70ch; }
+.blog-index h1 { font-size: var(--step-head); max-width: 16ch; }
+.blog-index .blog-intro { font-size: var(--step-lead); margin-top: 1.2rem; color: var(--muted); max-width: 60ch; }
+.blog-empty { margin-top: clamp(2.5rem, 5vw, 3.5rem); color: var(--muted); font-size: var(--step-body); }
+.blog-list { margin-top: clamp(2.5rem, 5vw, 3.5rem); display: flex; flex-direction: column; gap: clamp(2.6rem, 5.5vw, 3.6rem); }
+.blog-list-date { font-size: var(--step-small); color: var(--muted); }
+.blog-list-item h2 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); margin-top: 0.3rem; }
+.blog-list-item h2 a { text-decoration: none; }
+.blog-list-item h2 a:hover { text-decoration: underline; text-decoration-thickness: 0.07em; }
+.blog-list-item p { font-size: var(--step-body); margin-top: 0.5rem; color: var(--muted); max-width: 65ch; }
+
+.blog-post { background: var(--bg); color: var(--ink); padding-block: clamp(6rem, 12vw, 9rem) clamp(4rem, 8vw, 6rem); }
+.blog-post .wrap { max-width: 70ch; }
+.blog-post h1 { font-size: var(--step-head); max-width: 20ch; }
+.blog-post .blog-post-date { font-size: var(--step-small); color: var(--muted); margin-top: 1rem; display: block; }
+.blog-post .blog-post-body { margin-top: clamp(2rem, 4vw, 3rem); }
+.blog-post .blog-post-body h2 { font-size: clamp(1.3rem, 2vw, 1.7rem); margin-top: clamp(2rem, 4vw, 2.6rem); }
+.blog-post .blog-post-body p { font-size: var(--step-body); margin-top: 0.9rem; max-width: 70ch; }
+.blog-post .blog-post-body p + p { margin-top: 0.7em; }
+.blog-post .blog-post-body ul { margin-top: 0.9rem; padding-left: 1.2rem; list-style: disc; }
+.blog-post .blog-post-body li { font-size: var(--step-body); margin-top: 0.4rem; }
+.blog-post .blog-post-body a { color: inherit; }
+.blog-post-cta { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.blog-post-back { margin-top: clamp(2.5rem, 5vw, 3.5rem); display: block; font-size: 1.1rem; }
